@@ -17,8 +17,8 @@ script:
   
 after_success:
   - set -x -v;
-    set -e ;
-    if ["$NPM_TARGET" = "test"];then
+    set -e;
+    if [ "${NPM_TARGET}" = "test" ]; then
       docker tag probot-hello probot-hello:$(git rev-parse HEAD);
     else 
       echo "skipping docker tag"
